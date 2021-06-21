@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block title %}
+<h1 class="text-center">Blog Posts</h1>
+{% endblock title %} {% block body %} {% from 'macros/post_card.html' import
+post_card_macro %}
+<div class="container">
+  <div class="row">
+    {% if posts|length > 1 %} {% for post in posts %}
+    <div class="col">{{ post_card_macro(post) }}</div>
+    {% endfor %} {% else %} {% for post in posts %}
+    <div class="col">{{ post_card_macro(post) }}</div>
+    {% endfor %} {% endif %}
+  </div>
+</div>
+{% endblock body %}
